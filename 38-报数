@@ -1,0 +1,27 @@
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        if n==1:
+            return "1"
+        if n==2:
+            return "11"
+        pre = ['1','1']
+        now = []
+        for i in range(2, n):
+            now = []
+            count = 1
+            lens = len(pre)
+            for j in range(1, lens):
+                if pre[j]==pre[j-1]:
+                    count += 1
+                else:
+                    now.append(str(count))
+                    now.append(pre[j-1])
+                    count = 1
+            if pre[lens-1]==pre[lens-2]:
+                now.append(str(count))
+                now.append(pre[lens-1])
+            else:
+                now.append('1')
+                now.append(pre[lens-1])
+            pre = now.copy()
+        return "".join(now)
