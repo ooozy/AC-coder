@@ -8,16 +8,12 @@ class Solution:
             right = lens+1    
             while left<right:
                 s = nums[i]+nums[left]+nums[right]
+                if abs(ans-target)>abs(s-target):
+                        ans = s
                 if s==target:
                     return target
-                elif s>target:
-                    right -= 1
-                    if abs(ans-target)>abs(s-target):
-                        ans = s
-                    s = nums[i]+nums[left]+nums[right]
-                else:
+                elif s<target:
                     left += 1
-                    if abs(ans-target)>abs(s-target):
-                        ans = s
-                    s = nums[i]+nums[left]+nums[right]
+                else:
+                    right -= 1       
         return ans
