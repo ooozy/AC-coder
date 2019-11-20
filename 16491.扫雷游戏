@@ -1,0 +1,25 @@
+n, m = input().split()
+n = int(n)
+m = int(m)
+mine = [[] for i in range(n)]
+def countnum(i, j):
+    tmp = 0
+    for dx in range(-1,2):
+        for dy in range(-1,2):
+            if (i+dx)>-1 and (i+dx)<n and (j+dy)>-1 and (j+dy)<m and mine[i+dx][j+dy]=='*':
+                tmp += 1
+    return tmp
+for i in range(n):
+    s = input()
+    mine[i] = s
+ans = [[0]*n for _ in range(n)]
+for i in range(n):
+    for j in range(m):
+        if mine[i][j]=='*':
+            ans[i][j]='*'
+        else:
+            ans[i][j]=countnum(i,j)
+for i in range(n):
+    for j in range(m):
+        print(ans[i][j],end='')
+    print()
