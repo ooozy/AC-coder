@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+long long n, sum, mul;
+bool flag=true;
+char ch=0,c;
+int main()
+{
+    while(flag){
+        scanf("%lld", &n);
+        flag = scanf("%c", &c) == 1 ? true:false;
+        if(ch==0) mul = n;
+        if(ch=='+') sum = (sum+mul)%10000, mul = n;
+        if(ch=='*') mul = (mul*n)%10000;
+        if(!flag) sum = (sum+mul)%10000;
+        ch = c;
+    }
+    printf("%lld",sum);
+    return 0;
+}
