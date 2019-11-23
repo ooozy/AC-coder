@@ -1,0 +1,11 @@
+s = input()
+lens = len(s)-1
+while lens>0 and s[lens]=='0':
+    lens-=1
+if s[0]=='-':
+    print('-',end='')
+    for i in range(lens, 0, -1):
+        print(s[i],end='')
+else:
+    for i in range(lens, -1, -1):
+        print(s[i],end='')
