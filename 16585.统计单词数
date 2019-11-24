@@ -1,0 +1,14 @@
+1. python
+word = input().lower()
+post = input().lower().split(' ')
+n = post.count(word)
+if n>0:
+    index = post.index(word)
+    pos = 0
+    for i in range(0, index):
+        pos = pos + len(post[i])
+    print(n, pos + index) # 加上空格数
+else:
+    print(-1)
+    
+2. c++
